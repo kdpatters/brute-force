@@ -12,7 +12,7 @@ if __name__ == '__main__':
     brute_force(test_guess, alphabet)
 
 def brute_force(test_guess, alphabet, min_len = 0, max_len = 16, \
-    verbose = False)
+    verbose = False):
     '''
     Brute force a string that makes the function `test_guess` true,
     using the `alphabet` specified.  Print the correct string if found.

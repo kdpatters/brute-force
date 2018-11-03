@@ -11,7 +11,8 @@ if __name__ == '__main__':
 
     brute_force(test_guess, alphabet)
 
-def brute_force(test_guess, alphabet, min_len = 0, max_len = 16)
+def brute_force(test_guess, alphabet, min_len = 0, max_len = 16, \
+    verbose = False)
     '''
     Brute force a string that makes the function `test_guess` true,
     using the `alphabet` specified.  Print the correct string if found.
@@ -30,7 +31,7 @@ def brute_force(test_guess, alphabet, min_len = 0, max_len = 16)
 
     n_possible = 1
     not_finished = test_guess(guess) # Check empty string as a guess
-    #print("Current guess: %s" % (guess))
+    if verbose: print("Current guess: %s" % (guess))
     # Keep guessing until we find the answer
     while not_finished:
         curr_len +=1 # Increase the length of our guess
@@ -54,7 +55,7 @@ def brute_force(test_guess, alphabet, min_len = 0, max_len = 16)
             for k in range(j+1, curr_len):
                 guess_arr[k] = alphabet[0]
             guess = ''.join(guess_arr)
-            #print("Current guess: %s" % (guess))
+            if verbose: print("Current guess: %s" % (guess))
             # Check if our guess was correct before continuing
             not_finished = test_guess(guess)
         not_finished &= curr_len < max_len # Check we're less than max length
